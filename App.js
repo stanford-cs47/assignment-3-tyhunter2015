@@ -76,19 +76,6 @@ export default class App extends React.Component {
     this.setState({searchText});
   }
 
-  //not sure if needed
-  renderArticle = (index, item) => (
-    <News
-      text={item}
-      deleteTodo={() => this.deleteTodo(index)}
-    />
-    <Text>text</Text>
-  )
-//still not sure
-  keyExtractor = index => {
-    return index.toString();
-  }
-
   render() {
     const {articles, loading} = this.state;
 
@@ -111,26 +98,9 @@ export default class App extends React.Component {
             value={this.state.searchText}
         />
 
-        {}
-
-        <View style={styles.flatlist}>
-          <FlatList
-            data={this.state.articles}
-            //renderItem={{articles}}
-            renderItem={({ index, item }) => this.renderArticle(index, item)}
-            /*renderItem={( { item } ) => 
-              <ToDo text={item}/>
-            }*/
-            keyExtractor={(item, index) =>
-              return this.getArticleContent().toString();
-              this.keyExtractor(index)
-            }
-          />
-        </View>
-
-        {/*Though, you can style and organize these however you want! power to you 😎*/}
-
-        {/*If you want to return custom stuff from the NYT API, checkout the APIRequest file!*/}
+        <News
+          text={item}
+        />
 
       </SafeAreaView>
     );

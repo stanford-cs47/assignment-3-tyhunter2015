@@ -27,7 +27,12 @@ export default class News extends Component {
 
     return (
       <View style={styles.container}>
-        {/*Some FlatList or SectionList*/}
+          <FlatList
+            data={articles}
+            renderItem={( { item } ) => 
+              <ToDo text={item}/>
+            }
+          />
       </View>
     );
   }
