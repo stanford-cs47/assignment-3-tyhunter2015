@@ -29,9 +29,15 @@ export default class News extends Component {
       <View style={styles.container}>
           <FlatList
             data={articles}
-            renderItem={( { item } ) => 
-              <ToDo text={item}/>
-            }
+            keyExtractor={this.keyExtractor}
+            renderItem = {({ articles }) => (
+              <View>
+                title = {articles.headline}
+                summary = {articles.summary}
+                author = {articles.author}
+                date = {articles.created_date}
+              </View>
+            )}
           />
       </View>
     );

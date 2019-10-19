@@ -98,9 +98,7 @@ export default class App extends React.Component {
             value={this.state.searchText}
         />
 
-        <News
-          text={item}
-        />
+        {this.getArticleContent()}
 
       </SafeAreaView>
     );
