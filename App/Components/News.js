@@ -32,8 +32,8 @@ export default class News extends Component {
             keyExtractor={this.keyExtractor}
             renderItem = {({ articles }) => (
               <View>
-                title = {articles.headline}
-                summary = {articles.summary}
+                title = {articles.title}
+                summary = {articles.abstract}
                 author = {articles.author}
                 date = {articles.created_date}
               </View>

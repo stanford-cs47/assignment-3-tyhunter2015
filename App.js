@@ -26,6 +26,9 @@ import { Platform } from '@unimodules/core';
 import News from './App/Components/News'
 import Search from './App/Components/Search'
 
+import { EvilIcons } from '@expo/vector-icons';
+
+
 export default class App extends React.Component {
 
   state = {
@@ -72,6 +75,10 @@ export default class App extends React.Component {
     )
   }
 
+  searchArticle = () => {
+    this.setState({ text: "" });
+  }
+
   onChangeText = searchText => {
     this.setState({searchText});
   }
@@ -92,11 +99,21 @@ export default class App extends React.Component {
             }}
         />
 
-        <TextInput
+        <View style={{flexDirection: 'row'}}>
+          <TextInput
             style={styles.textinput}
             onChangeText={searchText => this.onChangeText(searchText)}
             value={this.state.searchText}
-        />
+          />
+
+          <TouchableOpacity onPress={this.searchArticle}>
+            <EvilIcons
+              style={{ marginLeft: 10}}
+              name='search'
+              size={40}
+            />
+          </TouchableOpacity>
+        </View>
 
         {this.getArticleContent()}
 
